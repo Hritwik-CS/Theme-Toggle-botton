@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Theme Toggle</title>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+
+        <div class="wlcm-page">
+            <p>PROJECT OF PAGE THEME TOGGLE</p>
+            <br>
+            <p>BHATTDEV UNIVERSITY CSE</p>
+        </div>
+
+        <div class="header-line">
+            THEME TOGGLE BOTTON
+        </div>
+
+        <div class="toggle"></div>
+
+        <div class="footer">
+            Made by Hritwik
+        </div>
+
+        <script>
+            const body = document.querySelector("body"),
+                toggle = document.querySelector(".toggle");
+
+                let getMode = localStorage.getItem("mode");
+                if (getMode && getMode === "dark") {
+                    body.classList.add("dark")
+                    toggle.classList.add("active")
+                }
+
+            toggle.addEventListener("click", () => {
+                body.classList.toggle("dark");
+
+                if(!body.classList.contains("dark")){
+                    return localStorage.setItem("mode", "light");
+                }
+                localStorage.setItem("mode", "dark");
+            });
+
+            toggle.addEventListener("click", () => toggle.classList.toggle("active"));
+        </script>
+    </body>
+</html>
